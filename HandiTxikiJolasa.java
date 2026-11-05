@@ -21,7 +21,7 @@ public class HandiTxikiJolasa {
 
         while (jokatzen) {
             System.out.println("Dagoen zenbakia: " + Jzenbakia);
-            System.out.print("Nolakoa izango da hurrengo zenbakia? (h/t/b): ");
+            System.out.print("Nolakoa izango da hurrengo zenbakia? (handiago(h)/txikiago(t)/berdina(b)): ");
             String erantzuna = scanner.nextLine().trim().toLowerCase();
 
             int HurrengoZen = random.nextInt(10) + 1;
