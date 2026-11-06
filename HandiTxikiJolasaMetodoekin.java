@@ -16,24 +16,18 @@ public class HandiTxikiJolasaMetodoekin {
     private static final Scanner scanner = new Scanner(System.in);
     private static final Random random = new Random();
 
-    /**
-     * Erabiltzailearen erantzuna eskatzen du (h, t edo b).
-     */
+     //Erabiltzailearen erantzuna eskatzen du (h, t edo b).
     public static String eskatuErantzuna() {
         System.out.print("Nolakoa izango da hurrengo zenbakia? (handiago(h)/txikiago(t)/berdina(b)): ");
         return scanner.nextLine().trim().toLowerCase();
     }
 
-    /**
-     * 1 eta 10 arteko ausazko zenbaki bat sortzen du.
-     */
+     // 1 eta 10 arteko ausazko zenbaki bat sortzen du.
     public static int sortuZenbakia() {
         return random.nextInt(10) + 1;
     }
 
-    /**
-     * Hurrengo zenbakia unekoarekin konparatzen du eta dagokion letra bueltatzen du ("h", "t" edo "b").
-     */
+     // Hurrengo zenbakia unekoarekin konparatzen du eta dagokion letra bueltatzen du ("h", "t" edo "b").
     public static String kalkulatuErantzunErreala(int unekoZenbakia, int hurrengoZenbakia) {
         if (hurrengoZenbakia > unekoZenbakia) {
             return "h"; // handiago
