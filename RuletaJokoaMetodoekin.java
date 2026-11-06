@@ -14,9 +14,8 @@ public class RuletaJokoaMetodoekin {
     private static final Scanner scanner = new Scanner(System.in);
     private static final Random random = new Random();
 
-    /**
-     * Menua pantailaratzen du.
-     */
+   
+     //Menua pantailaratzen du.
     public static void erakutsiMenua() {
         System.out.println("\n--- RULETA JOKOA ---");
         System.out.println("Nola jokatu nahi duzu?");
@@ -27,9 +26,7 @@ public class RuletaJokoaMetodoekin {
         System.out.print("Aukeratu zer egin: ");
     }
 
-    /**
-     * Erabiltzaileari apustu balioduna eskatzen dio (1 eta dauzkan puntuen artean).
-     */
+     //Erabiltzaileari apustu balioduna eskatzen dio (1 eta dauzkan puntuen artean).
     public static int eskatuApustua(int puntos) {
         int apuesta;
         do {
@@ -39,9 +36,7 @@ public class RuletaJokoaMetodoekin {
         return apuesta;
     }
 
-    /**
-     * 1. Aukera: Kolorearen araberako apustua.
-     */
+     //1. Aukera: Kolorearen araberako apustua.
     public static int jokatuKolorea(int puntos) {
         int apuesta = eskatuApustua(puntos);
 
@@ -91,9 +86,7 @@ public class RuletaJokoaMetodoekin {
         return puntos;
     }
 
-    /**
-     * 2. Aukera: Bakoiti edo bikoitiaren araberako apustua.
-     */
+     // 2. Aukera: Bakoiti edo bikoitiaren araberako apustua.
     public static int jokatuBakoitiBikoiti(int puntos) {
         int apuesta = eskatuApustua(puntos);
 
@@ -135,9 +128,7 @@ public class RuletaJokoaMetodoekin {
         return puntos;
     }
 
-    /**
-     * 3. Aukera: Zenbaki zehatz baten araberako apustua.
-     */
+     //3. Aukera: Zenbaki zehatz baten araberako apustua.
     public static int jokatuZenbakia(int puntos) {
         int apuesta = eskatuApustua(puntos);
         int aukeratutakoZenbakia;
