@@ -24,6 +24,8 @@
     --card-hover-border: #3b82f6;
     --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
     --card-shadow-hover: 0 12px 25px -5px rgba(37, 99, 235, 0.15);
+    --input-bg: #ffffff;
+    --input-border: #cbd5e1;
 }
 
 /* Gau Modua (Modo Oscuro) */
@@ -48,6 +50,9 @@ body.dark-theme {
     --card-hover-border: #60a5fa;
     --card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
     --card-shadow-hover: 0 12px 25px -5px rgba(59, 130, 246, 0.25);
+
+    --input-bg: #0b0f19;
+    --input-border: #374151;
 }
 
 /* ==========================================
@@ -368,6 +373,129 @@ footer {
     height: 170px;
     object-fit: cover;
     border-radius: 10px;
+}
+.login-container {
+    margin: auto;
+    padding: 40px 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 36px 32px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: var(--card-shadow);
+    text-align: left;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.login-card h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 24px;
+    text-align: center;
+    color: var(--text-main);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--text-main);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Selector de tipo de usuario (Bazkide / No Bazkide) */
+.user-type-section {
+    margin: 24px 0;
+    text-align: center;
+}
+
+.user-type-section p {
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-muted);
+}
+
+.type-buttons {
+    display: flex;
+    gap: 6px;
+    background-color: var(--bg-body);
+    padding: 4px;
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
+}
+
+.type-btn {
+    flex: 1;
+    padding: 10px 8px;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.type-btn.active {
+    background-color: var(--card-bg);
+    color: var(--primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Botón de envío */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--primary);
+    color: var(--primary-text);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(1px);
 }
 /* Diseño adaptativo para dispositivos móviles */
 @media (max-width: 640px) {
