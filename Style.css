@@ -322,7 +322,7 @@ footer {
     margin: 0 auto;
 }
 
-/* ===== Udaleku: tarjetas ===== */
+/* ===== Udaleku: txartelak ===== */
 .cards-container {
     display: flex;
     flex-wrap: wrap;
@@ -366,7 +366,7 @@ footer {
     padding-top: 10px;
 }
 .card-image {
-    order: -1; /* sube la imagen arriba de la tarjeta */
+    order: -1; /* irudia txartel gainera igo */
 }
 .card-image img {
     width: 100%;
@@ -434,7 +434,7 @@ footer {
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
-/* Selector de tipo de usuario (Bazkide / No Bazkide) */
+/* Erabiltzaile mota hautaketa (Bazkide / No Bazkide) */
 .user-type-section {
     margin: 24px 0;
     text-align: center;
@@ -475,7 +475,7 @@ footer {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-/* Botón de envío */
+/* Bidaltzeko botoia */
 .submit-btn {
     width: 100%;
     padding: 14px;
