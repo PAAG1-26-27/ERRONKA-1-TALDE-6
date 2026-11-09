@@ -353,7 +353,7 @@ footer {
     align-items: center;
     justify-content: center;
     border-radius: 12px;
-    background-color: var(--accent);
+    background-color: var(--primary);
     color: var(--primary-text);
 }
 .description,
