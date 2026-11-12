@@ -24,8 +24,6 @@
     --card-hover-border: #3b82f6;
     --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
     --card-shadow-hover: 0 12px 25px -5px rgba(37, 99, 235, 0.15);
-    --input-bg: #ffffff;
-    --input-border: #cbd5e1;
 }
 
 /* Gau Modua (Modo Oscuro) */
@@ -50,9 +48,6 @@ body.dark-theme {
     --card-hover-border: #60a5fa;
     --card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
     --card-shadow-hover: 0 12px 25px -5px rgba(59, 130, 246, 0.25);
-
-    --input-bg: #0b0f19;
-    --input-border: #374151;
 }
 
 /* ==========================================
@@ -196,7 +191,10 @@ header h1 {
 /* ==========================================
    CONTENIDO PRINCIPAL (MAIN Y TARJETAS)
    ========================================== */
-
+.activities-title {
+    text-align: center;
+    margin: 30px 0;
+}
 main {
     max-width: 1000px;
     margin: 50px auto;
@@ -299,250 +297,7 @@ footer {
     font-size: 0.88rem;
     color: var(--text-muted);
 }
-/* ===== Udaleku: hero ===== */
-.hero-section {
-    text-align: center;
-    margin-bottom: 30px;
-}
-.badge {
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: 999px;
-    background-color: var(--primary);
-    color: var(--primary-text);
-    font-size: 13px;
-    font-weight: 600;
-}
-.hero-section h2 {
-    margin: 12px 0 8px;
-}
-.hero-section p {
-    color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto;
-}
 
-/* ===== Udaleku: txartelak ===== */
-.cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 28px;
-    justify-content: center;
-    width: 100%;
-}
-.card {
-    flex: 1 1 260px;
-    max-width: 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    text-align: left;
-    background-color: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: var(--card-shadow);
-}
-.card h3 {
-    margin: 0;
-}
-.icon-wrapper {
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    background-color: var(--primary);
-    color: var(--primary-text);
-}
-.description,
-.info-list p {
-    color: var(--text-muted);
-    margin: 4px 0;
-}
-.info-list {
-    border-top: 1px solid var(--card-border);
-    padding-top: 10px;
-}
-.card-image {
-    order: -1; /* irudia txartel gainera igo */
-}
-.card-image img {
-    width: 100%;
-    height: 170px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-.login-container {
-    margin: auto;
-    padding: 40px 20px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.login-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 16px;
-    padding: 36px 32px;
-    width: 100%;
-    max-width: 420px;
-    box-shadow: var(--card-shadow);
-    text-align: left;
-    transition: box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.login-card h2 {
-    font-size: 1.75rem;
-    font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 24px;
-    text-align: center;
-    color: var(--text-main);
-}
-
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.form-group label {
-    display: block;
-    font-size: 0.88rem;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: var(--text-main);
-}
-
-.form-group input {
-    width: 100%;
-    padding: 12px 14px;
-    border: 1px solid var(--input-border);
-    background-color: var(--input-bg);
-    color: var(--text-main);
-    border-radius: 8px;
-    font-size: 0.95rem;
-    outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.form-group input:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-}
-
-/* Erabiltzaile mota hautaketa (Bazkide / No Bazkide) */
-.user-type-section {
-    margin: 24px 0;
-    text-align: center;
-}
-
-.user-type-section p {
-    font-size: 0.88rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: var(--text-muted);
-}
-
-.type-buttons {
-    display: flex;
-    gap: 6px;
-    background-color: var(--bg-body);
-    padding: 4px;
-    border-radius: 10px;
-    border: 1px solid var(--card-border);
-}
-
-.type-btn {
-    flex: 1;
-    padding: 10px 8px;
-    border: none;
-    background: transparent;
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.type-btn.active {
-    background-color: var(--card-bg);
-    color: var(--primary);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-/* Bidaltzeko botoia */
-.submit-btn {
-    width: 100%;
-    padding: 14px;
-    background-color: var(--primary);
-    color: var(--primary-text);
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-}
-
-.submit-btn:hover {
-    background-color: var(--primary-hover);
-    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
-}
-
-.submit-btn:active {
-    transform: translateY(1px);
-}
-.table-container {
-            width: 100%;
-            overflow-x: auto; /* Scroll horizontal en pantallas pequeñas */
-            background-color: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            box-shadow: var(--card-shadow);
-            margin-top: 10px;
-        }
-
-        .custom-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.95rem;
-            text-align: center;
-        }
-
-        .custom-table th {
-            background-color: var(--primary);
-            color: var(--primary-text);
-            padding: 14px 16px;
-            font-weight: 600;
-            border: none;
-        }
-
-        .custom-table td {
-            padding: 12px 16px;
-            border-bottom: 1px solid var(--card-border);
-            color: var(--text-main);
-        }
-
-        .custom-table tbody tr:last-child td {
-            border-bottom: none;
-        }
-
-        .custom-table tbody tr:nth-child(even) {
-            background-color: rgba(37, 99, 235, 0.03);
-        }
-
-        body.dark-theme .custom-table tbody tr:nth-child(even) {
-            background-color: rgba(255, 255, 255, 0.02);
-        }
-
-        .custom-table tbody tr:hover {
-            background-color: rgba(37, 99, 235, 0.08);
-        }
 /* Diseño adaptativo para dispositivos móviles */
 @media (max-width: 640px) {
     .footer-simple {
@@ -554,5 +309,152 @@ footer {
     .footer-brand {
         flex-direction: column;
         gap: 6px;
+    }
+}
+
+
+
+
+/* ==========================================
+   DISEÑO DE LAS ACTIVIDADES
+   ========================================== */
+
+.activities-main {
+    max-width: 1200px;
+    width: calc(100% - 40px);
+    box-sizing: border-box;
+    align-items: stretch;
+    margin: 40px auto;
+}
+
+.activities-section {
+    width: 100%;
+    margin-top: 35px;
+}
+
+.section-description {
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
+
+/* Cuadrícula de actividades */
+
+.nav-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    width: 100%;
+}
+
+/* Tarjetas */
+
+.activity-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    min-width: 0;
+    padding: 16px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+.activity-card .card-image {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+.activity-card .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.activity-card h3 {
+    margin: 8px 0;
+}
+
+.activity-card p {
+    color: var(--text-muted);
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+/* Botón de inscripción */
+
+.register-btn {
+    margin-top: auto;
+    padding: 10px 20px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.register-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Actividades de verano: tres columnas */
+
+.summer-section .activity-subsection:first-of-type .nav-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Campamentos centrados */
+
+.summer-section .activity-subsection:last-of-type .nav-grid {
+    display: flex;
+    justify-content: center;
+}
+
+.summer-section .activity-subsection:last-of-type .activity-card {
+    max-width: 350px;
+    width: 100%;
+}
+/* ==========================================
+   DISEÑO RESPONSIVE
+   ========================================== */
+
+@media (max-width: 900px) {
+    .nav-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .summer-section .activity-subsection:first-of-type .nav-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 550px) {
+    .nav-grid,
+    .summer-section .activity-subsection:first-of-type .nav-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .activity-card {
+        max-width: 400px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .activities-main {
+        width: calc(100% - 24px);
+        padding: 0;
     }
 }
