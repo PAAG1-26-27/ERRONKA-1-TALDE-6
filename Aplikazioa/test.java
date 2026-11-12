@@ -26,7 +26,7 @@ public class test {
                     e1.setid_ekintza();
                     e1.setIzena();
                     e1.setHasieraData();
-                    l.add(e1);//copiao de arraiba
+                    l.add(e1);//copiao de arriba
                     System.out.println("¡Ekintza ondo gehitu da!\n");
                     
                     System.out.print("Beste ekintza bat gehitu nahi duzu? (Sakatu 1 jarraitzeko, 0 irten eta menura bueltatzeko): ");
