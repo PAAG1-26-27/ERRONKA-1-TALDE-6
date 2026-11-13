@@ -47,7 +47,7 @@
                 <!-- Nombre -->
                 <div class="form-group">
                     <label for="nombre" data-testua="nameLabel">Izena / Nombre</label>
-                    <input type="text" id="nombre" name="nombre" required placeholder="Jon / Ane">
+                    <input type="text" id="nombre" name="nombre" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+" required oninput="this.value = this.value.replace(/[^a-zA-ZÁÉÍÓÚáéíóúÑñÜü\s]/g, '')" placeholder="Jon / Ane">
                 </div>
 
                 <!-- Email -->
