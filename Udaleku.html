@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gazteleku Udalekuak</title>
+    <link rel="icon" type="image/png" href="Images/Logo.png">
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+    <!-- Header con navegación -->
+    <header>
+        <img src="Images/Logo.png" alt="Empresa Logo" height="40">
+        <h1>Eibar/Ermua Gaztelekua</h1>
+        
+        <div class="header-controls">
+            <a href="Login.html" class="Btn" data-testua="login">Saioa hasi</a>
+            
+            <button class="Btn" id="settingsToggleBtn" aria-label="Ajustes">⚙️</button>
+
+            <div class="settings-dropdown" id="settingsDropdown">
+                <div class="settings-group">
+                    <p data-testua="langLabel">Hizkuntza</p>
+                    <div class="lang-buttons">
+                        <button onclick="changeLanguage('eu')">EU</button>
+                        <button onclick="changeLanguage('es')">ES</button>
+                        <button onclick="changeLanguage('en')">EN</button>
+                    </div>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid var(--dropdown-border); margin: 12px 0;">
+
+                <div class="settings-group">
+                    <p data-testua="appearanceLabel">Itxura</p>
+                    <button class="Btn" style="width: 100%;" id="themeToggleBtn" data-testua="modeNight">🌙 Gau modua</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Eduki printzipala -->
+    <main class="main-container">
+        
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <span class="badge" data-testua="heroBadge">Udalekuen informazioa</span>
+            <h2 data-testua="heroTitle">Gure Udalekuak eta Txandak</h2>
+            <p data-testua="heroSubtitle">Ezagutu aurten eskaintzen ditugun txanda desberdinak, lekuak eta datak. Eman izena zure txandan!</p>
+        </section>
+
+        <!-- Flexbox txartelak (Udalekuen txartelak) -->
+        <section class="cards-container">
+            
+            <!-- Txartela 1 -->
+            <article class="card">
+                <div class="icon-wrapper">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 20 12 4 5 20h14z"/><path d="M12 14v6"/></svg>
+                </div>
+                <h3 data-testua="camp1Title">Izarra Udalekua</h3>
+                <p class="description" data-testua="camp1Desc">Naturarekin kontaktuan egoteko eta kirol ekintzak egiteko kanpaldia mendian.</p>
+                <div class="info-list">
+                    <p data-testua="camp1Age"><strong>Adina:</strong> 12 - 18 urte</p>
+                    <p data-testua="camp1Dates"><strong>Datak:</strong> Uztailak 1 - Abuztuak 10</p>
+                    <p data-testua="camp1Place"><strong>Lekua:</strong> Gorbeia</p>
+                </div>
+                <div class="card-image">
+                    <img src="Images/gorbeia.jpg" alt="Izarra Udalekua">
+                </div>
+            </article>
+
+            <!-- Txartela 2 -->
+            <article class="card">
+                <div class="icon-wrapper">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 20 12 4 5 20h14z"/><path d="M12 14v6"/></svg>
+                </div>
+                <h3 data-testua="camp2Title">Itsasertza Udalekua</h3>
+                <p class="description" data-testua="camp2Desc">Uretako kirolak, hondartza jolasak eta ingurumen tailerrak kostaldean.</p>
+                <div class="info-list">
+                    <p data-testua="camp2Age"><strong>Adina:</strong> 12 - 18 urte</p>
+                    <p data-testua="camp2Dates"><strong>Datak:</strong> Uztailak 12 - Abuztuak 22</p>
+                    <p data-testua="camp2Place"><strong>Lekua:</strong> Zumaia</p>
+                </div>
+                <div class="card-image">
+                    <img src="Images/zumaia.jpg" alt="Itsasertza Udalekua">
+                </div>
+            </article>
+
+            <!-- Txartela 3 -->
+            <article class="card">
+                <div class="icon-wrapper">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 20 12 4 5 20h14z"/><path d="M12 14v6"/></svg>
+                </div>
+                <h3 data-testua="camp3Title">Iriarte Aterpetxea Udalekua</h3>
+                <p class="description" data-testua="camp3Desc">Abentura eta natura uztartzen dituzten udaleku oso arrakastatsua.<br>Bertan multiabentura, bike park eta sukaldaritza bezalako esperientziak eskaintzen dituzte.</p>
+                <div class="info-list">
+                    <p data-testua="camp3Age"><strong>Adina:</strong> 12 - 18 urte</p>
+                    <p data-testua="camp3Dates"><strong>Datak:</strong> Uztailak 10 - Abuztuak 22</p>
+                    <p data-testua="camp3Place"><strong>Lekua:</strong> Nafarroako Oronz herrian kokatua, Zaraitzu ibarrean</p>
+                </div>
+                <div class="card-image">
+                    <img src="Images/oronz.jpg" alt="Iriarte Aterpetxea Udalekua">
+                </div>
+            </article>
+
+        </section>
+
+        <!-- Botón para volver atrás (al final de la página) -->
+        <div style="margin-top: 40px; text-align: center;">
+            <a href="Main.html" class="Btn" data-testua="backBtn">← Atzera</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-simple">
+            <div class="footer-brand">
+                <img src="Images/Logo.png" alt="Gaztelekua Logo">
+                <p>© 2026 Eibar / Ermua Gaztelekua</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            eu: {
+                backBtn: "← Atzera",
+                login: "Saioa hasi",
+                langLabel: "Hizkuntza",
+                appearanceLabel: "Itxura",
+                modeNight: "🌙 Gau modua",
+                modeDay: "☀️ Egun modua",
+                heroBadge: "Udalekuen informazioa",
+                heroTitle: "Gure Udalekuak eta Txandak",
+                heroSubtitle: "Ezagutu aurten eskaintzen ditugun txanda desberdinak, lekuak eta datak. Eman izena zure txandan!",
+                camp1Title: "Izarra Udalekua",
+                camp1Desc: "Naturarekin kontaktuan egoteko eta kirol ekintzak egiteko kanpaldia mendian.",
+                camp1Age: "<strong>Adina:</strong> 12 - 18 urte",
+                camp1Dates: "<strong>Datak:</strong> Uztailak 1 - Abuztuak 10",
+                camp1Place: "<strong>Lekua:</strong> Gorbeia",
+                camp2Title: "Itsasertza Udalekua",
+                camp2Desc: "Uretako kirolak, hondartza jolasak eta ingurumen tailerrak kostaldean.",
+                camp2Age: "<strong>Adina:</strong> 12 - 18 urte",
+                camp2Dates: "<strong>Datak:</strong> Uztailak 12 - Abuztuak 22",
+                camp2Place: "<strong>Lekua:</strong> Zumaia",
+                camp3Title: "Iriarte Aterpetxea Udalekua",
+                camp3Desc: "Abentura eta natura uztartzen dituzten udaleku oso arrakastatsua.<br>Bertan multiabentura, bike park eta sukaldaritza bezalako esperientziak eskaintzen dituzte.",
+                camp3Age: "<strong>Adina:</strong> 12 - 18 urte",
+                camp3Dates: "<strong>Datak:</strong> Uztailak 10 - Abuztuak 22",
+                camp3Place: "<strong>Lekua:</strong> Nafarroako Oronz herrian kokatua, Zaraitzu ibarrean"
+            },
+            es: {
+                backBtn: "← Volver",
+                login: "Iniciar Sesión",
+                langLabel: "Idioma",
+                appearanceLabel: "Apariencia",
+                modeNight: "🌙 Modo Noche",
+                modeDay: "☀️ Modo Día",
+                heroBadge: "Información de campamentos",
+                heroTitle: "Nuestros Campamentos y Turnos",
+                heroSubtitle: "Descubre los diferentes turnos, lugares y fechas que ofrecemos este año. ¡Apúntate en tu turno!",
+                camp1Title: "Campamento Izarra",
+                camp1Desc: "Campamento en la montaña para estar en contacto con la naturaleza y realizar actividades deportivas.",
+                camp1Age: "<strong>Edad:</strong> 12 - 18 años",
+                camp1Dates: "<strong>Fechas:</strong> 1 de julio - 10 de agosto",
+                camp1Place: "<strong>Lugar:</strong> Gorbeia",
+                camp2Title: "Campamento Itsasertza",
+                camp2Desc: "Deportes acuáticos, juegos de playa y talleres medioambientales en la costa.",
+                camp2Age: "<strong>Edad:</strong> 12 - 18 años",
+                camp2Dates: "<strong>Fechas:</strong> 12 de julio - 22 de agosto",
+                camp2Place: "<strong>Lugar:</strong> Zumaia",
+                camp3Title: "Campamento Albergue Iriarte",
+                camp3Desc: "Un campamento de gran éxito que combina aventura y naturaleza.<br>Ofrece experiencias como multiaventura, bike park y cocina.",
+                camp3Age: "<strong>Edad:</strong> 12 - 18 años",
+                camp3Dates: "<strong>Fechas:</strong> 10 de julio - 22 de agosto",
+                camp3Place: "<strong>Lugar:</strong> Situado en el pueblo de Oronz (Navarra), en el valle de Salazar"
+            },
+            en: {
+                backBtn: "← Back",
+                login: "Log In",
+                langLabel: "Language",
+                appearanceLabel: "Appearance",
+                modeNight: "🌙 Night Mode",
+                modeDay: "☀️ Day Mode",
+                heroBadge: "Camps information",
+                heroTitle: "Our Camps and Sessions",
+                heroSubtitle: "Discover the different sessions, locations, and dates we offer this year. Sign up for your session!",
+                camp1Title: "Izarra Camp",
+                camp1Desc: "Mountain camp to connect with nature and enjoy outdoor sports activities.",
+                camp1Age: "<strong>Age:</strong> 12 - 18 years",
+                camp1Dates: "<strong>Dates:</strong> July 1 - August 10",
+                camp1Place: "<strong>Location:</strong> Gorbeia",
+                camp2Title: "Itsasertza Camp",
+                camp2Desc: "Water sports, beach games, and environmental workshops on the coast.",
+                camp2Age: "<strong>Age:</strong> 12 - 18 years",
+                camp2Dates: "<strong>Dates:</strong> July 12 - August 22",
+                camp2Place: "<strong>Location:</strong> Zumaia",
+                camp3Title: "Iriarte Hostel Camp",
+                camp3Desc: "A highly successful camp combining adventure and nature.<br>Featuring experiences such as multi-adventure, bike park, and cooking.",
+                camp3Age: "<strong>Age:</strong> 12 - 18 years",
+                camp3Dates: "<strong>Dates:</strong> July 10 - August 22",
+                camp3Place: "<strong>Location:</strong> Located in the village of Oronz (Navarre), in the Salazar Valley"
+            }
+        };
+
+        const settingsToggleBtn = document.getElementById('settingsToggleBtn');
+        const settingsDropdown = document.getElementById('settingsDropdown');
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+
+        settingsToggleBtn.addEventListener('click', () => {
+            settingsDropdown.classList.toggle('active');
+        });
+
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            const isDark = document.body.classList.contains('dark-theme');
+            const currentLang = document.documentElement.lang || 'eu';
+            
+            themeToggleBtn.textContent = isDark 
+                ? translations[currentLang].modeDay 
+                : translations[currentLang].modeNight;
+        });
+
+        function changeLanguage(lang) {
+            if (!translations[lang]) return;
+
+            document.documentElement.lang = lang;
+
+            document.querySelectorAll('[data-testua]').forEach(element => {
+                const key = element.getAttribute('data-testua');
+                
+                if (translations[lang][key]) {
+                    if (key === 'modeNight') {
+                        const isDark = document.body.classList.contains('dark-theme');
+                        element.textContent = isDark ? translations[lang].modeDay : translations[lang].modeNight;
+                    } else {
+                        element.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

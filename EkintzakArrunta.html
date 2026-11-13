@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="eu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="Images/Logo.png">
+  <link rel="stylesheet" href="Style.css">
+  <title>Ekintzak</title>
+</head>
+
+<body>
+  <header>
+    <img src="Images/Logo.png" alt="Empresa Logo" height="40">
+    <h1>Eibar/Ermua Gaztelekua</h1>
+
+    <div class="header-controls">
+      <a href="#" class="Btn" data-testua="login">👤</a>
+
+      <button class="Btn" id="settingsToggleBtn" aria-label="Ajustes">⚙️</button>
+
+      <div class="settings-dropdown" id="settingsDropdown">
+        <div class="settings-group">
+          <p data-testua="langLabel">Hizkuntza</p>
+          <div class="lang-buttons">
+            <button onclick="changeLanguage('eu')">EU</button>
+            <button onclick="changeLanguage('es')">ES</button>
+            <button onclick="changeLanguage('en')">EN</button>
+          </div>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid var(--dropdown-border); margin: 12px 0;">
+
+        <div class="settings-group">
+          <p data-testua="appearanceLabel">Itxura</p>
+          <button class="Btn" style="width: 100%;" id="themeToggleBtn" data-testua="modeNight">🌙 Gau modua</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <h1 class="activities-title" data-testua="pageTitle">Gure ekintzak</h1>
+  
+  <main class="activities-main">
+
+    <p class="activities-intro" data-testua="activitiesIntro">
+      Ezagutu GAZTELEKUko ekintzak eta bizi esperientzia berriak!
+    </p>
+
+    <!-- ASTEBURUETAKO EKINTZAK -->
+    <section class="activities-section weekend-section">
+
+      <h2 data-testua="weekendTitle">Asteburuetako ekintzak</h2>
+
+      <p class="section-description" data-testua="weekendDesc">
+        Asteburuetan gozatzeko, ikasteko eta lagunekin esperientzia berriak bizitzeko jarduerak.
+      </p>
+
+      <div class="nav-grid">
+
+        <article class="activity-card">
+          <div class="card-image">
+            <img src="Images/Hitzaldiak.jpg" alt="Hitzaldiak">
+          </div>
+          <h3 data-testua="act1Title">Hitzaldiak</h3>
+          <p data-testua="act1Desc">Gai interesgarriei buruz ikasteko eta ideiak partekatzeko topaketak.</p>
+          <button class="register-btn" onclick="mostrarMensaje()" data-testua="registerBtn">
+            Izena eman 3€
+          </button>
+        </article>
+
+        <article class="activity-card">
+          <div class="card-image">
+            <img src="Images/Kontzertuak.jpg" alt="Kontzertuak">
+          </div>
+          <h3 data-testua="act2Title">Kontzertuak</h3>
+          <p data-testua="act2Desc">Musikaz gozatzeko eta talde edo artista desberdinak ezagutzeko emanaldiak.</p>
+          <button class="register-btn" onclick="mostrarMensaje()" data-testua="registerBtn">
+            Izena eman 15€
+          </button>
+        </article>
+
+        <article class="activity-card">
+          <div class="card-image">
+            <img src="Images/Jolasak.jpg" alt="Jolasak">
+          </div>
+          <h3 data-testua="act3Title">Jolasak</h3>
+          <p data-testua="act3Desc">Taldean dibertitzeko, parte hartzeko eta lagun berriak egiteko jarduerak.</p>
+          <button class="register-btn" onclick="mostrarMensaje()" data-testua="registerBtn">
+            Izena eman 2€
+          </button>
+        </article>
+
+        <article class="activity-card">
+          <div class="card-image">
+            <img src="Images/Irteerak.jpg" alt="Irteerak">
+          </div>
+          <h3 data-testua="act4Title">Irteerak</h3>
+          <p data-testua="act4Desc">Inguruko lekuak ezagutzeko txangoak eta irteerak.</p>
+          <button class="register-btn" onclick="mostrarMensaje()" data-testua="registerBtn">
+            Izena eman 10€
+          </button>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- UDAKO EKINTZAK -->
+    <section class="activities-section summer-section">
+
+      <h2 data-testua="summerTitle">Udako ekintzak</h2>
+
+      <p class="section-description" data-testua="summerDesc">
+        Udan bi ekintza mota antolatzen ditugu: eguneko ekintzak eta lo egiteko udalekuak.
+      </p>
+
+      <!-- EGUNEKO EKINTZAK -->
+      <div class="activity-subsection">
+
+        <h3 data-testua="dayActsTitle">Egunez egingo diren ekintzak</h3>
+
+        <div class="nav-grid">
+
+          <article class="activity-card">
+            <div class="card-image">
+              <img src="Images/Surf.jpg" alt="Surf hastapena">
+            </div>
+            <h3 data-testua="act5Title">Surf hastapena</h3>
+            <p data-testua="act5Desc">Surfaren oinarrizko teknikak ikasi eta itsasoaz gozatzeko aukera.</p>
+            <button class="register-btn" onclick="mostrarMensaje()" data-testua="registerBtn">
+              Izena eman 30€
+            </button>
+          </article>
+
+          <article class="activity-card">
+            <div class="card-image">
+              <img src="Images/PaddleSurf.jpg" alt="Paddle surf">
+            </div>
+            <h3 data-testua="act6Title">Paddle surf</h3>
+            <p data-testua="act6Desc">Oreka eta koordinazioa lantzeko uretako jarduera dibertigarria.</p>
+            <button class="register-btn" onclick="mostrarMensaje()" data-testua="registerBtn">
+              Izena eman 35€
+            </button>
+          </article>
+
+          <article class="activity-card">
+            <div class="card-image">
+              <img src="Images/MendiIrteerak.jpg" alt="Mendi irteerak">
+            </div>
+            <h3 data-testua="act7Title">Mendi irteerak</h3>
+            <p data-testua="act7Desc">Naturaz gozatzeko eta inguruko mendiak ezagutzeko txangoak.</p>
+            <button class="register-btn" onclick="mostrarMensaje()" data-testua="registerBtn">
+              Izena eman 15€
+            </button>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- LO EGITEKO UDALEKUAK -->
+      <div class="activity-subsection">
+
+        <h3 data-testua="overnightTitle">Lo egiteko udalekuak</h3>
+
+        <div class="nav-grid">
+
+          <article class="activity-card">
+            <div class="card-image">
+              <img src="Images/Udalekuak.jpg" alt="Lo egiteko udalekuak">
+            </div>
+            <h3 data-testua="act8Title">Udalekuak</h3>
+            <p data-testua="act8Desc">Herritik edo eskualdetik kanpo egun batzuk igarotzeko aukera, elkarbizitza eta esperientzia berriak partekatuz.</p>
+            <button class="register-btn" onclick="mostrarMensaje()" data-testua="registerBtn">
+              Izena eman 35€
+            </button>
+          </article>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Botón para volver atrás (al final de la página) -->
+    <div style="margin-top: 45px; text-align: center;">
+      <a href="MainArrunta.html" class="Btn" data-testua="backBtn">← Atzera</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-simple">
+      <div class="footer-brand">
+        <img src="Images/Logo.png" alt="Gaztelekua Logo">
+        <p>© 2026 Eibar / Ermua Gaztelekua</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      eu: {
+        backBtn: "← Atzera",
+        login: "Saioa hasi",
+        langLabel: "Hizkuntza",
+        appearanceLabel: "Itxura",
+        modeNight: "🌙 Gau modua",
+        modeDay: "☀️ Egun modua",
+        pageTitle: "Gure ekintzak",
+        activitiesIntro: "Ezagutu GAZTELEKUko ekintzak eta bizi esperientzia berriak!",
+        weekendTitle: "Asteburuetako ekintzak",
+        weekendDesc: "Asteburuetan gozatzeko, ikasteko eta lagunekin esperientzia berriak bizitzeko jarduerak.",
+        act1Title: "Hitzaldiak",
+        act1Desc: "Gai interesgarriei buruz ikasteko eta ideiak partekatzeko topaketak.",
+        act2Title: "Kontzertuak",
+        act2Desc: "Musikaz gozatzeko eta talde edo artista desberdinak ezagutzeko emanaldiak.",
+        act3Title: "Jolasak",
+        act3Desc: "Taldean dibertitzeko, parte hartzeko eta lagun berriak egiteko jarduerak.",
+        act4Title: "Irteerak",
+        act4Desc: "Inguruko lekuak ezagutzeko txangoak eta irteerak.",
+        summerTitle: "Udako ekintzak",
+        summerDesc: "Udan bi ekintza mota antolatzen ditugu: eguneko ekintzak eta lo egiteko udalekuak.",
+        dayActsTitle: "Egunez egingo diren ekintzak",
+        act5Title: "Surf hastapena",
+        act5Desc: "Surfaren oinarrizko teknikak ikasi eta itsasoaz gozatzeko aukera.",
+        act6Title: "Paddle surf",
+        act6Desc: "Oreka eta koordinazioa lantzeko uretako jarduera dibertigarria.",
+        act7Title: "Mendi irteerak",
+        act7Desc: "Naturaz gozatzeko eta inguruko mendiak ezagutzeko txangoak.",
+        overnightTitle: "Lo egiteko udalekuak",
+        act8Title: "Udalekuak",
+        act8Desc: "Herritik edo eskualdetik kanpo egun batzuk igarotzeko aukera, elkarbizitza eta esperientzia berriak partekatuz.",
+        registerBtn: "Izena eman",
+        loginAlert: "Saioa hasi behar duzu izena emateko."
+      },
+      es: {
+        backBtn: "← Volver",
+        login: "Iniciar Sesión",
+        langLabel: "Idioma",
+        appearanceLabel: "Apariencia",
+        modeNight: "🌙 Modo Noche",
+        modeDay: "☀️ Modo Día",
+        pageTitle: "Nuestras actividades",
+        activitiesIntro: "¡Descubre las actividades del GAZTELEKU y vive nuevas experiencias!",
+        weekendTitle: "Actividades de fin de semana",
+        weekendDesc: "Actividades para disfrutar, aprender y vivir nuevas experiencias con amigos los fines de semana.",
+        act1Title: "Charlas",
+        act1Desc: "Encuentros para aprender sobre temas interesantes y compartir ideas.",
+        act2Title: "Conciertos",
+        act2Desc: "Actuaciones para disfrutar de la música y conocer diferentes grupos o artistas.",
+        act3Title: "Juegos",
+        act3Desc: "Actividades para divertirse en grupo, participar y hacer nuevas amistades.",
+        act4Title: "Salidas",
+        act4Desc: "Excursiones y salidas para conocer lugares de los alrededores.",
+        summerTitle: "Actividades de verano",
+        summerDesc: "En verano organizamos dos tipos de actividades: actividades de día y campamentos para pernoctar.",
+        dayActsTitle: "Actividades de día",
+        act5Title: "Iniciación al surf",
+        act5Desc: "Oportunidad para aprender las técnicas básicas del surf y disfrutar del mar.",
+        act6Title: "Paddle surf",
+        act6Desc: "Divertida actividad acuática para trabajar el equilibrio y la coordinación.",
+        act7Title: "Salidas al monte",
+        act7Desc: "Excursiones para disfrutar de la naturaleza y conocer los montes de la zona.",
+        overnightTitle: "Campamentos con pernocta",
+        act8Title: "Campamentos",
+        act8Desc: "Oportunidad de pasar unos días fuera del pueblo o comarca, compartiendo convivencia y nuevas experiencias.",
+        registerBtn: "Inscribirse",
+        loginAlert: "Debes iniciar sesión para inscribirte."
+      },
+      en: {
+        backBtn: "← Back",
+        login: "Log In",
+        langLabel: "Language",
+        appearanceLabel: "Appearance",
+        modeNight: "🌙 Night Mode",
+        modeDay: "☀️ Day Mode",
+        pageTitle: "Our activities",
+        activitiesIntro: "Discover GAZTELEKU's activities and live new experiences!",
+        weekendTitle: "Weekend activities",
+        weekendDesc: "Activities to enjoy, learn, and experience new things with friends on weekends.",
+        act1Title: "Talks",
+        act1Desc: "Gatherings to learn about interesting topics and share ideas.",
+        act2Title: "Concerts",
+        act2Desc: "Performances to enjoy music and discover different bands or artists.",
+        act3Title: "Games",
+        act3Desc: "Activities to have fun in a group, participate, and make new friends.",
+        act4Title: "Outings",
+        act4Desc: "Excursions and outings to explore nearby places.",
+        summerTitle: "Summer activities",
+        summerDesc: "In summer we organize two types of activities: day activities and overnight camps.",
+        dayActsTitle: "Daytime activities",
+        act5Title: "Surfing for beginners",
+        act5Desc: "A chance to learn the basic techniques of surfing and enjoy the sea.",
+        act6Title: "Paddle surfing",
+        act6Desc: "A fun water activity to work on balance and coordination.",
+        act7Title: "Mountain hikes",
+        act7Desc: "Excursions to enjoy nature and explore the surrounding mountains.",
+        overnightTitle: "Overnight camps",
+        act8Title: "Camps",
+        act8Desc: "An opportunity to spend a few days away from town, sharing coexistence and new experiences.",
+        registerBtn: "Sign up",
+        loginAlert: "You must log in to sign up."
+      }
+    };
+
+    const settingsToggleBtn = document.getElementById('settingsToggleBtn');
+    const settingsDropdown = document.getElementById('settingsDropdown');
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+
+    settingsToggleBtn.addEventListener('click', () => {
+      settingsDropdown.classList.toggle('active');
+    });
+
+    themeToggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-theme');
+      const isDark = document.body.classList.contains('dark-theme');
+      const currentLang = document.documentElement.lang || 'eu';
+
+      themeToggleBtn.textContent = isDark
+        ? translations[currentLang].modeDay
+        : translations[currentLang].modeNight;
+    });
+
+    function changeLanguage(lang) {
+      if (!translations[lang]) return;
+
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('[data-testua]').forEach(element => {
+        const key = element.getAttribute('data-testua');
+
+        if (translations[lang][key]) {
+          if (key === 'modeNight') {
+            const isDark = document.body.classList.contains('dark-theme');
+            element.textContent = isDark ? translations[lang].modeDay : translations[lang].modeNight;
+          } else {
+            element.innerHTML = translations[lang][key];
+          }
+        }
+      });
+    }
+
+    function mostrarMensaje() {
+  const currentLang = document.documentElement.lang || 'eu';
+
+  if (currentLang === 'eu') {
+    alert("Izena eman duzu!");
+  } else if (currentLang === 'es') {
+    alert("¡Te has registrado!");
+  } else {
+    alert("You have registered!");
+  }
+}
+  </script>
+</body>
+
+</html>

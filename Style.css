@@ -1,0 +1,792 @@
+/* ==========================================
+   VARIABLES DE COLOR Y TEMAS (Variables CSS)
+   ========================================== */
+
+/* Diseinu Argia (Modo Claro por defecto) */
+:root {
+    --bg-body: #f8fafc;
+    --bg-header: #ffffff;
+    --bg-footer: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --primary-text: #ffffff;
+
+    --accent: #f97316;
+    --accent-hover: #ea580c;
+
+    --dropdown-bg: #ffffff;
+    --dropdown-border: #e2e8f0;
+    --card-bg: #ffffff;
+    --card-border: #e2e8f0;
+    --card-hover-border: #3b82f6;
+    --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+    --card-shadow-hover: 0 12px 25px -5px rgba(37, 99, 235, 0.15);
+
+    --input-bg: #ffffff;
+    --input-border: #cbd5e1;
+}
+
+/* Gau Modua (Modo Oscuro) */
+body.dark-theme {
+    --bg-body: #0b0f19;
+    --bg-header: #111827;
+    --bg-footer: #111827;
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    
+    --primary: #3b82f6;
+    --primary-hover: #60a5fa;
+    --primary-text: #0f172a;
+
+    --accent: #fb923c;
+    --accent-hover: #fdba74;
+
+    --dropdown-bg: #1f2937;
+    --dropdown-border: #374151;
+    --card-bg: #111827;
+    --card-border: #1f2937;
+    --card-hover-border: #60a5fa;
+    --card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+    --card-shadow-hover: 0 12px 25px -5px rgba(59, 130, 246, 0.25);
+
+    --input-bg: #0b0f19;
+    --input-border: #374151;
+}
+
+/* ==========================================
+   ESTILOS GENERALES Y ESTRUCTURA BASE
+   ========================================== */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==========================================
+   HEADER Y CONTROLES DE NAVEGACIÓN
+   ========================================== */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 30px;
+    background-color: var(--bg-header);
+    border-bottom: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h1 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 auto 0 14px;
+    color: var(--text-main);
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+}
+
+/* Botones genéricos */
+.Btn {
+    padding: 8px 18px;
+    background-color: var(--primary);
+    color: var(--primary-text);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.header-controls .Btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.Btn:active {
+    transform: translateY(0);
+}
+
+/* Desplegable de Ajustes */
+.settings-dropdown {
+    display: none;
+    position: absolute;
+    top: 125%;
+    right: 0;
+    margin-top: 8px;
+    background-color: var(--dropdown-bg);
+    border: 1px solid var(--dropdown-border);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+    z-index: 200;
+    min-width: 220px;
+    backdrop-filter: blur(8px);
+    animation: dropdownFade 0.2s ease-out;
+}
+
+.settings-dropdown.active {
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.settings-group {
+    margin-bottom: 12px;
+}
+
+.settings-group:last-child {
+    margin-bottom: 0;
+}
+
+.settings-group p {
+    margin: 0 0 8px 0;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+}
+
+.lang-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.lang-buttons button {
+    flex: 1;
+    padding: 8px 6px;
+    border: 1px solid var(--dropdown-border);
+    background: transparent;
+    color: var(--text-main);
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    transition: all 0.2s ease;
+}
+
+.lang-buttons button:hover {
+    background-color: var(--primary);
+    color: var(--primary-text);
+    border-color: var(--primary);
+}
+
+/* ==========================================
+   CONTENIDO PRINCIPAL (INICIO / INDEX)
+   ========================================== */
+
+main {
+    max-width: 1000px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 50px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+}
+
+main h4 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 35px;
+    max-width: 600px;
+    line-height: 1.5;
+}
+
+/* Grid de 3 tarjetas principales en inicio */
+main:not(.activities-main) .nav-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.card-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 18px;
+    text-decoration: none;
+    color: var(--text-main);
+    box-shadow: var(--card-shadow);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card-btn:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--card-hover-border);
+}
+
+.card-btn img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    transition: transform 0.35s ease;
+}
+
+.card-btn:hover img {
+    transform: scale(1.05);
+}
+
+.card-btn span {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    padding: 4px 0;
+    transition: color 0.2s ease;
+}
+
+.card-btn:hover span {
+    color: var(--primary);
+}
+
+/* ==========================================
+   DISEÑO DE LAS ACTIVIDADES (ekintzak.html)
+   ========================================== */
+
+.activities-title {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.activities-main {
+    max-width: 1200px;
+    width: calc(100% - 40px);
+    box-sizing: border-box;
+    align-items: stretch;
+    margin: 40px auto;
+}
+
+.activities-section {
+    width: 100%;
+    margin-top: 35px;
+}
+
+.section-description {
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
+
+.activities-main .nav-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    width: 100%;
+}
+
+.activity-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    min-width: 0;
+    padding: 16px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--card-hover-border);
+}
+
+.activity-card .card-image {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    order: 0; /* Asegura que mantenga su orden normal en actividades */
+}
+
+.activity-card .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.activity-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.activity-card h3 {
+    margin: 8px 0;
+}
+
+.activity-card p {
+    color: var(--text-muted);
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+/* Botón de inscripción */
+.register-btn {
+    margin-top: auto;
+    padding: 10px 20px;
+    background-color: var(--primary);
+    color: var(--primary-text);
+    border: none;
+    border-radius: 7px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.15s;
+}
+
+.register-btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+/* Actividades de verano: tres columnas */
+.summer-section .activity-subsection:first-of-type .nav-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Campamentos centrados en actividades */
+.summer-section .activity-subsection:last-of-type .nav-grid {
+    display: flex;
+    justify-content: center;
+}
+
+.summer-section .activity-subsection:last-of-type .activity-card {
+    max-width: 350px;
+    width: 100%;
+}
+
+/* ==========================================
+   UDALEKUAK (udalekuak.html)
+   ========================================== */
+
+.hero-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background-color: var(--primary);
+    color: var(--primary-text);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.hero-section h2 {
+    margin: 12px 0 8px;
+}
+
+.hero-section p {
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    justify-content: center;
+    width: 100%;
+}
+
+.card {
+    flex: 1 1 260px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--card-hover-border);
+}
+
+.card h3 {
+    margin: 0;
+}
+
+.icon-wrapper {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background-color: var(--accent);
+    color: var(--primary-text);
+}
+
+.description,
+.info-list p {
+    color: var(--text-muted);
+    margin: 4px 0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+.info-list {
+    border-top: 1px solid var(--card-border);
+    padding-top: 10px;
+    margin-top: auto;
+}
+
+.card .card-image {
+    order: -1; /* Sube la imagen arriba de la tarjeta */
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.card .card-image img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+/* ==========================================
+   LOGIN Y FORMULARIOS
+   ========================================== */
+
+.login-container {
+    margin: auto;
+    padding: 40px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 36px 32px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: var(--card-shadow);
+    text-align: left;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.login-card h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 24px;
+    text-align: center;
+    color: var(--text-main);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.form-group input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--text-main);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Selector de tipo de usuario (Bazkide / No Bazkide) */
+.user-type-section {
+    margin: 24px 0;
+    text-align: center;
+}
+
+.user-type-section p {
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-muted);
+}
+
+.type-buttons {
+    display: flex;
+    gap: 6px;
+    background-color: var(--bg-body);
+    padding: 4px;
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
+}
+
+.type-btn {
+    flex: 1;
+    padding: 10px 8px;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.type-btn.active {
+    background-color: var(--card-bg);
+    color: var(--primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Botón de envío */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--primary);
+    color: var(--primary-text);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(1px);
+}
+
+/* ==========================================
+   TABLAS (Monitoreak / Horarios)
+   ========================================== */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Scroll horizontal en pantallas pequeñas */
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    margin-top: 10px;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.custom-table th {
+    background-color: var(--primary);
+    color: var(--primary-text);
+    padding: 14px 16px;
+    font-weight: 600;
+    border: none;
+}
+
+.custom-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--card-border);
+    color: var(--text-main);
+}
+
+.custom-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.custom-table tbody tr:nth-child(even) {
+    background-color: rgba(37, 99, 235, 0.03);
+}
+
+body.dark-theme .custom-table tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.custom-table tbody tr:hover {
+    background-color: rgba(37, 99, 235, 0.08);
+}
+
+/* ==========================================
+   PIE DE PÁGINA (FOOTER)
+   ========================================== */
+
+footer {
+    background-color: var(--bg-footer);
+    border-top: 1px solid var(--card-border);
+    padding: 18px 30px;
+    margin-top: 40px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.footer-simple {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-brand img {
+    height: 28px;
+    width: auto;
+}
+
+.footer-brand p {
+    margin: 0;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================
+   DISEÑO ADAPTATIVO (RESPONSIVE)
+   ========================================== */
+
+@media (max-width: 900px) {
+    main:not(.activities-main) .nav-grid,
+    .activities-main .nav-grid,
+    .summer-section .activity-subsection:first-of-type .nav-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .footer-simple {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .footer-brand {
+        flex-direction: column;
+        gap: 6px;
+    }
+}
+
+@media (max-width: 550px) {
+    header {
+        padding: 12px 16px;
+    }
+
+    header h1 {
+        font-size: 1.1rem;
+    }
+
+    main:not(.activities-main) .nav-grid,
+    .activities-main .nav-grid,
+    .summer-section .activity-subsection:first-of-type .nav-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .activity-card {
+        max-width: 400px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .activities-main {
+        width: calc(100% - 24px);
+        padding: 0;
+    }
+}

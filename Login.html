@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saioa Hasi / Login - Gaztelekua</title>
+    <link rel="icon" type="image/png" href="Images/Logo.png">
+    <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="Images/Logo.png" alt="Empresa Logo" height="40">
+        <h1>Eibar/Ermua Gaztelekua</h1>
+        
+        <div class="header-controls">
+            
+            <button class="Btn" id="settingsToggleBtn" aria-label="Ajustes">⚙️</button>
+
+            <div class="settings-dropdown" id="settingsDropdown">
+                <div class="settings-group">
+                    <p data-testua="langLabel">Hizkuntza</p>
+                    <div class="lang-buttons">
+                        <button onclick="changeLanguage('eu')">EU</button>
+                        <button onclick="changeLanguage('es')">ES</button>
+                        <button onclick="changeLanguage('en')">EN</button>
+                    </div>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid var(--dropdown-border); margin: 12px 0;">
+
+                <div class="settings-group">
+                    <p data-testua="appearanceLabel">Itxura</p>
+                    <button class="Btn" style="width: 100%;" id="themeToggleBtn" data-testua="modeNight">🌙 Gau modua</button>
+                </div>
+            </div>
+        </div>
+    </header>   
+
+    <!-- Formulario de Login -->
+    <main class="login-container">
+        <div class="login-card">
+            <h2 data-testua="loginTitle">Saioa hasi</h2>
+            
+            <form id="loginForm">
+                <!-- Nombre -->
+                <div class="form-group">
+                    <label for="nombre" data-testua="nameLabel">Izena / Nombre</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Jon / Ane">
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email" data-testua="emailLabel">Posta elektronikoa / Email</label>
+                    <input type="email" id="email" name="email" required placeholder="adibidea@email.com">
+                </div>
+
+                <!-- Contraseña -->
+                <div class="form-group">
+                    <label for="password" data-testua="passLabel">Pasahitza / Contraseña</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <!-- Selector Bazkide / No Bazkide -->
+                <div class="user-type-section">
+                    <p data-testua="userTypeQuestion">Zein da zure egoera?</p>
+                    <div class="type-buttons">
+                        <button type="button" class="type-btn active" id="btnBazkide" data-testua="btnBazkide">Bazkidea naiz</button>
+                        <button type="button" class="type-btn" id="btnNoBazkide" data-testua="btnNoBazkide">Ez naiz bazkidea</button>
+                    </div>
+                </div>
+
+                <!-- Botón dinámico de redirección -->
+                <button type="submit" id="submitBtn" class="submit-btn" data-testua="submitBazkide">
+                    Sartu Bazkide eremuan
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-simple">
+            <div class="footer-brand">
+                <img src="Images/Logo.png" alt="Gaztelekua Logo">
+                <p>© 2026 Eibar / Ermua Gaztelekua</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lógica de JS -->
+    <script>
+        // Diccionario de traducciones extendido
+        const translations = {
+            eu: {
+                loginTitle: "Saioa hasi",
+                langLabel: "Hizkuntza",
+                appearanceLabel: "Itxura",
+                modeNight: "🌙 Gau modua",
+                modeDay: "☀️ Egun modua",
+                nameLabel: "Izena",
+                emailLabel: "Posta elektronikoa",
+                passLabel: "Pasahitza",
+                userTypeQuestion: "Zein da zure egoera?",
+                btnBazkide: "Bazkidea naiz",
+                btnNoBazkide: "Ez naiz bazkidea",
+                submitBazkide: "Sartu Bazkide eremuan",
+                submitNoBazkide: "Sartu Eremu Orokorrean"
+            },
+            es: {
+                loginTitle: "Iniciar Sesión",
+                langLabel: "Idioma",
+                appearanceLabel: "Apariencia",
+                modeNight: "🌙 Modo Noche",
+                modeDay: "☀️ Modo Día",
+                nameLabel: "Nombre",
+                emailLabel: "Correo electrónico",
+                passLabel: "Contraseña",
+                userTypeQuestion: "¿Cuál es tu estado?",
+                btnBazkide: "Soy Socio/a",
+                btnNoBazkide: "No soy Socio/a",
+                submitBazkide: "Entrar como Socio/a",
+                submitNoBazkide: "Entrar a la Web General"
+            },
+            en: {
+                loginTitle: "Log In",
+                langLabel: "Language",
+                appearanceLabel: "Appearance",
+                modeNight: "🌙 Night Mode",
+                modeDay: "☀️ Day Mode",
+                nameLabel: "Name",
+                emailLabel: "Email address",
+                passLabel: "Password",
+                userTypeQuestion: "What is your status?",
+                btnBazkide: "I am a Member",
+                btnNoBazkide: "I am not a Member",
+                submitBazkide: "Enter as Member",
+                submitNoBazkide: "Enter Main Site"
+            }
+        };
+
+        // Elementos DOM
+        const settingsToggleBtn = document.getElementById('settingsToggleBtn');
+        const settingsDropdown = document.getElementById('settingsDropdown');
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        
+        const btnBazkide = document.getElementById('btnBazkide');
+        const btnNoBazkide = document.getElementById('btnNoBazkide');
+        const submitBtn = document.getElementById('submitBtn');
+        const loginForm = document.getElementById('loginForm');
+
+        let isBazkideSelected = true;
+
+        // Toggle Ajustes
+        settingsToggleBtn.addEventListener('click', () => {
+            settingsDropdown.classList.toggle('active');
+        });
+
+        // Toggle Tema
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            const isDark = document.body.classList.contains('dark-theme');
+            const currentLang = document.documentElement.lang || 'eu';
+            
+            themeToggleBtn.textContent = isDark 
+                ? translations[currentLang].modeDay 
+                : translations[currentLang].modeNight;
+        });
+
+        // Cambio de tipo de usuario (Bazkide vs No Bazkide)
+        btnBazkide.addEventListener('click', () => {
+            isBazkideSelected = true;
+            btnBazkide.classList.add('active');
+            btnNoBazkide.classList.remove('active');
+            updateSubmitButtonText();
+        });
+
+        btnNoBazkide.addEventListener('click', () => {
+            isBazkideSelected = false;
+            btnNoBazkide.classList.add('active');
+            btnBazkide.classList.remove('active');
+            updateSubmitButtonText();
+        });
+
+        // Actualizar el texto del botón según idioma y selección
+        function updateSubmitButtonText() {
+            const lang = document.documentElement.lang || 'eu';
+            if (isBazkideSelected) {
+                submitBtn.textContent = translations[lang].submitBazkide;
+            } else {
+                submitBtn.textContent = translations[lang].submitNoBazkide;
+            }
+        }
+
+        // Cambio de idioma dinamico
+        function changeLanguage(lang) {
+            if (!translations[lang]) return;
+            document.documentElement.lang = lang;
+
+            document.querySelectorAll('[data-testua]').forEach(element => {
+                const key = element.getAttribute('data-testua');
+                if (translations[lang][key]) {
+                    if (key === 'modeNight') {
+                        const isDark = document.body.classList.contains('dark-theme');
+                        element.textContent = isDark ? translations[lang].modeDay : translations[lang].modeNight;
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+
+            updateSubmitButtonText();
+        }
+
+        // Lógica de Envío del Formulario (Redirección según la opción elegida)
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            if (isBazkideSelected) {
+                // Redirige al main específico para Bazkides
+                window.location.href = "MainBazkide.html"; 
+            } else {
+                // Redirige al main general / estándar
+                window.location.href = "MainArrunta.html"; 
+            }
+        });
+    </script>
+</body>
+</html>
